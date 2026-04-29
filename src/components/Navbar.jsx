@@ -1,8 +1,10 @@
-"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/images.png"
-import { Avatar, Button } from "@heroui/react";
+import { Button } from "@heroui/react";
+import MyNavLink from "./MyNavLink";
+
 // import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
@@ -12,11 +14,27 @@ const Navbar = () => {
 // await authClient.signOut();
 // }
 
+const navItems = [
+ {
+path: "/",
+text: "Home"
+ },
+ {
+path: "/all-tiles",
+text: "All Tiles"
+ },
+ {
+path: "/profile",
+text: "My Profile"
+ },
+
+]
 
 
   return (
     <div className=" border-b px-2">
-      <nav className=" flex justify-between items-center  py-3 max-w-7xl mx-auto w-full">
+      <nav className="flex justify-between items-center  py-3 max-w-7xl mx-auto w-full ">
+         
         <div className="flex gap-2 items-center">
           <Image
             src={logo}
@@ -26,22 +44,17 @@ const Navbar = () => {
             height={30}
             className="object-cover h-auto w-auto"
           />
-          <h3 className="font-black text-lg">pixgen.</h3>
+          <h3 className="font-black text-lg">Tile Gallery</h3>
         </div>
 
         <ul className="flex items-center gap-5 text-sm">
-          <li>
-            <Link href={"/"}> Home </Link>
-          </li>
-          <li>
-            <Link href={"/all-photos"}>All Photos</Link>
-          </li>
-          <li>
-            <Link href={"/pricing"}>Pricing</Link>
-          </li>
-          <li>
-            <Link href={"/profile"}>Profile</Link>
-          </li>
+        {
+navItems.map((item,index) => (<MyNavLink key={index} href={item.path}>
+<li className="py-1">{item.text}</li>
+</MyNavLink>
+))}
+
+          
         </ul>
 
         <div className="flex gap-4">
@@ -71,13 +84,12 @@ const Navbar = () => {
           )} */}
 
 <ul className="flex items-center gap-4  text-sm">
+            
             <li>
-              <Link href={"/signup"}><Button>SignUp</Button></Link>
+              <Link href={"/login"}><Button>Login</Button></Link>
             </li>
-            <li>
-              <Link href={"/signin"}><Button>SignIn</Button></Link>
-            </li>
-          </ul>
+</ul>
+
 
         </div>
       </nav>
