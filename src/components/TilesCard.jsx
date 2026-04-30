@@ -1,25 +1,29 @@
+import { Button, Card } from '@heroui/react';
 import Image from 'next/image';
 import React from 'react';
 
 const TilesCard = ({tiles}) => {
 console.log(tiles);
           return (
-                    <div className="card bg-base-100 w-96 shadow-sm">
-  <figure>
+          <Card className="card bg-base-100 max-w-96 shadow-lg my-10">
+ <div className="relative w-full aspect-square">
     <Image
       src={tiles.image}
-      width={200} 
-      height={200}      
-      alt="Shoes" />
-  </figure>
-  <div className="card-body">
-    <h2 className="card-title">{tiles.title}</h2>
+      fill
+sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"     
+      alt={tiles.title}
+      className='object-cover rounded-xl'
+      />
+</div>
+  <div className="card-body space-y-2">
+    <h2 className="card-title font-bold text-lg">{tiles.title}</h2>
     <p>{tiles.description}</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Buy Now</button>
+
+      <Button className="bg-[#0f4ea6]">View Details</Button>
     </div>
   </div>
-</div>
+</Card>
           );
 };
 
