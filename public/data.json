@@ -1,10 +1,9 @@
-
 [
   {
     "id": "tile_001",
     "title": "Ceramic Blue Tile",
     "description": "Premium ceramic tile with blue glaze finish",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV6tGMHgEQ9C0KS0L676T1O__76JpWA25fLQ&s",
+    "image": "/images/tiles/tile_001.jpg",
     "category": "ceramic",
     "price": 45.99,
     "currency": "USD",
@@ -16,7 +15,7 @@
     "id": "tile_002",
     "title": "Marble White Elegance",
     "description": "Luxury white marble tile for modern interiors",
-    "image": "data:image/jpeg;base64,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f",
+    "image": "/images/tiles/tile_002.jpg",
     "category": "marble",
     "price": 78.5,
     "currency": "USD",
@@ -28,24 +27,120 @@
     "id": "tile_003",
     "title": "Wooden Rustic Finish",
     "description": "Natural wood texture tile for warm aesthetic",
-    "image": "data:image/jpeg;base64,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",
+    "image": "/images/tiles/tile_003.jpg",
     "category": "wood",
     "price": 52.0,
     "currency": "USD",
     "dimensions": "60x120 cm",
     "material": "Porcelain",
-    "inStock": true 
+    "inStock": true
   },
   {
     "id": "tile_004",
     "title": "Modern Geometric Grey",
     "description": "Stylish geometric pattern tile in grey tone",
-    "image": "data:image/jpeg;base64,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",
+    "image": "/images/tiles/tile_004.jpg",
     "category": "modern",
     "price": 40.25,
     "currency": "USD",
     "dimensions": "60x60 cm",
     "material": "Ceramic",
     "inStock": false
-  }]
-
+  },
+  {
+    "id": "tile_005",
+    "title": "Luxury Gold Pattern",
+    "description": "Premium gold accent tile for luxury spaces",
+    "image": "/images/tiles/tile_005.jpg",
+    "category": "luxury",
+    "price": 95.0,
+    "currency": "USD",
+    "dimensions": "80x80 cm",
+    "material": "Marble",
+    "inStock": true
+  },
+  {
+    "id": "tile_006",
+    "title": "Minimalist Beige Tile",
+    "description": "Clean and simple beige tile for modern homes",
+    "image": "/images/tiles/tile_006.jpg",
+    "category": "minimal",
+    "price": 38.99,
+    "currency": "USD",
+    "dimensions": "60x60 cm",
+    "material": "Ceramic",
+    "inStock": true
+  },
+  {
+    "id": "tile_007",
+    "title": "Stone Texture Outdoor Tile",
+    "description": "Durable stone finish tile for outdoor spaces",
+    "image": "/images/tiles/tile_007.jpg",
+    "category": "outdoor",
+    "price": 60.0,
+    "currency": "USD",
+    "dimensions": "100x100 cm",
+    "material": "Stone",
+    "inStock": true
+  },
+  {
+    "id": "tile_008",
+    "title": "Artistic Mosaic Design",
+    "description": "Colorful mosaic tile for creative interior designs",
+    "image": "/images/tiles/tile_008.jpg",
+    "category": "artistic",
+    "price": 70.75,
+    "currency": "USD",
+    "dimensions": "50x50 cm",
+    "material": "Glass",
+    "inStock": true
+  },
+  {
+    "id": "tile_009",
+    "title": "Glossy Black Marble",
+    "description": "Elegant black marble tile with glossy finish",
+    "image": "/images/tiles/tile_009.jpg",
+    "category": "marble",
+    "price": 88.0,
+    "currency": "USD",
+    "dimensions": "80x80 cm",
+    "material": "Marble",
+    "inStock": true
+  },
+  {
+    "id": "tile_010",
+    "title": "Soft Cream Ceramic",
+    "description": "Warm cream ceramic tile for cozy interiors",
+    "image": "/images/tiles/tile_010.jpg",
+    "category": "ceramic",
+    "price": 42.5,
+    "currency": "USD",
+    "dimensions": "60x60 cm",
+    "material": "Ceramic",
+    "inStock": true
+  },
+  {
+    "id": "tile_011",
+    "title": "Industrial Concrete Look",
+    "description": "Modern concrete style tile for industrial design",
+    "image": "/images/tiles/tile_011.jpg",
+    "category": "industrial",
+    "price": 55.0,
+    "currency": "USD",
+    "dimensions": "60x120 cm",
+    "material": "Porcelain",
+    "inStock": false
+  },
+  {
+    "id": "tile_012",
+    "title": "Ocean Wave Pattern Tile",
+    "description": "Blue wave inspired artistic ceramic tile",
+    "image": "/images/tiles/tile_012.jpg",
+    "category": "artistic",
+    "price": 65.99,
+    "currency": "USD",
+    "dimensions": "60x60 cm",
+    "material": "Ceramic",
+    "inStock": true
+  }
+]
