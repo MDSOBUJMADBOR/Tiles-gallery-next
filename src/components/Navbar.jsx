@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../../public/images.png"
+import logo from "../../public/tiles.png"
 import { Button } from "@heroui/react";
 import MyNavLink from "./MyNavLink";
 import { useState } from "react";
@@ -36,15 +36,13 @@ text: "My Profile"
 
 ]
 const [open,setOpen] = useState(false)
-// function toggleMenu = () => {
 
-// }
 
   return (
-    <div className=" border-b px-2">
+    <div className="border-b border-gray-200 sticky top-0 bg-black z-50 shadow-xl/3 px-4 ">
       <nav className="flex justify-between items-center  py-3 max-w-7xl mx-auto w-full ">
          
-        <div className="flex   gap-2 items-center">
+        <div className="flex   gap-4 items-center">
           <Image
             src={logo}
             alt="logo"
@@ -53,13 +51,13 @@ const [open,setOpen] = useState(false)
             height={30}
             className="object-cover h-auto w-auto"
           />
-          <h3 className="font-black text-lg">Tile Gallery</h3>
+          <h3 className="font-black text-lg text-white">Tile Gallery</h3>
         </div>
 
         <ul className="sm:flex hidden items-center gap-3 text-sm">
 {
 navItems.map((item,index) => (<MyNavLink key={index} href={item.path}>
-<li className="py-1 transition-all duration-200 hover:scale-[1.2]  hover:bg-transparent   w-[70px] text-center">{item.text}</li>
+<li className="py-1 transition-all duration-200 hover:scale-[1.2]  hover:bg-transparent   w-[70px] text-center text-white">{item.text}</li>
 </MyNavLink>
 ))}
 
@@ -67,36 +65,23 @@ navItems.map((item,index) => (<MyNavLink key={index} href={item.path}>
         </ul>
 {/* small device start */}
     <div onClick={() => setOpen(!open)} className="dropdown dropdown-center sm:hidden ">
-  {/* <div  className=" m-1">{open ? <X className='sm:hidden'></X> : <Menu className='sm:hidden'></Menu>}</div> */}
+  
   <div onClick={toggleMenu} className="sm:hidden cursor-pointer">
-  {open ? <X /> : <Menu />}
+  {open ? <X className="text-white" /> : <Menu className="text-white" />}
 </div>
-{/* 
-  <ul tabIndex="-1" className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm gap-2">
-   
-{navItems.map((item, index) => (
-            <MyNavLink key={index} href={item.path}>
-             <span className="flex items-center gap-1 justify-start ">
-       {item.text}
-      </span>
-            </MyNavLink>
-           
-          ))}
 
-
-  </ul> */}
   {/* Mobile Menu */}
 <ul
-  className={`sm:hidden absolute top-12 left-0 w-full bg-gray-200 shadow-md flex flex-col items-center gap-5 py-4 transition-all duration-300 ${
+  className={` sm:hidden absolute top-12 left-0 w-full bg-[#31537c] shadow-md flex flex-col items-center gap-5 py-4 transition-all duration-300 ${
     open ? "max-h-96 opacity-100" : "max-h-0 opacity-0 overflow-hidden"
   }`}
 >
   {navItems.map((item, index) => (
-    <li className="w-full px-4" key={index}>
+    <li className="w-full px-4 " key={index}>
       <Link
         href={item.path}
         onClick={() => setOpen(false)}
-        className="block w-full py-3 text-center rounded-lg transition-all duration-400 ease-in-out hover:bg-green-300"
+        className="block w-full py-3 text-center rounded-lg transition-all duration-400 ease-in-out text-white hover:bg-[#3cd86b]"
       >
         {item.text}
       </Link>
@@ -106,9 +91,9 @@ navItems.map((item,index) => (<MyNavLink key={index} href={item.path}>
   <li className="w-full px-4">
     <Link
       href="/login"
-      className="block w-full py-2 text-center rounded-lg transition-all duration-300 ease-in-out hover:bg-green-300 "
+      className="block w-full py-2 text-center rounded-lg transition-all duration-300 ease-in-out hover:bg-[#3cd86b] text-white"
     >
-      <Button className="text-lg" variant="light">Login</Button>
+      <Button className="text-lg " variant="light">Login</Button>
     </Link>
   </li>
 </ul>

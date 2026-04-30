@@ -12,7 +12,7 @@ const MyNavLink = ({ href, className = "", children }) => {
     <Link
       href={href}
       className={`${className} ${
-        isActive ? "border-b-2 border-black" : ""
+        isActive ? "border-b-2 border-white " : ""
       }`}
     >
       {children}

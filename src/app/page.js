@@ -1,7 +1,10 @@
+import Banner from "@/components/Banner";
 
 
 export default function Home() {
   return (
-    <h2 className="bg-red-500">Home Page</h2>
+   <Banner></Banner>
+
+    // <h2 className="bg-red-500">Home Page</h2>
   );
 }
