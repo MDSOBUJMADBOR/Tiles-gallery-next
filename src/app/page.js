@@ -1,10 +1,14 @@
 import Banner from "@/components/Banner";
+import MarqueePage from "@/components/Marquar";
+
 
 
 export default function Home() {
   return (
-   <Banner></Banner>
-
-    // <h2 className="bg-red-500">Home Page</h2>
+ <div>
+    <Banner></Banner>
+<MarqueePage></MarqueePage>
+ </div>
+  
   );
 }
