@@ -2,8 +2,23 @@
 const nextConfig = {
   /* config options here */
   images: {
-    domains: ["images.unsplash.com"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+        port: '',
+      
+      },
+    ],
   },
+  // images: {
+  //   remotePatterns: [
+  //     {
+  //       protocol: "https",
+  //       hostname: "i.ibb.co",
+  //     },
+  //   ],
+  // },
 };
 
 export default nextConfig;
