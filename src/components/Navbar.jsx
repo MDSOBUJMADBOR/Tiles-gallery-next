@@ -51,7 +51,7 @@ const [open,setOpen] = useState(false)
             height={30}
             className="object-cover h-auto w-auto"
           />
-          <h3 className="font-black text-lg text-white">Tile Gallery</h3>
+          <Link href={"/"}><h3 className="font-black text-lg text-white">Tile Gallery</h3></Link>
         </div>
 
         <ul className="sm:flex hidden items-center gap-3 text-sm">
