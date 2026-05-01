@@ -1,19 +1,39 @@
 'use client'
 
+import { authClient } from '@/lib/auth-client';
 import { Button, Description, FieldError, Input, Label, TextField,Card } from '@heroui/react';
-import { Check  } from 'lucide-react';
 import {Icon} from "@iconify/react";
 import Link from 'next/link';
+import { toast } from 'react-toastify';
 
 
 const LoginPage = () => {
+const onSubmit = async (e) => {
+e.preventDefault();
+const email = e.target.email.value;
+const password = e.target.password.value;
 
+const {data, error} = await authClient.signIn.email({
+  email,
+  password,
+  callbackURL: "/",
+})
+console.log(data,error);
+if(error){
+  toast.error(error.message);
+}
+}
 
+const handleGoogleLogin = async () => {
+  await authClient.signIn.social({
+    provider: 'google'
+  })
+}
 
   return (
     <Card className='border mx-auto max-w-120 py-10 my-10'>
           <h1 className="text-center text-2xl font-bold">Login</h1>
-      <form className="flex w-96 mx-auto flex-col gap-4" >
+      <form onSubmit={onSubmit} className="flex w-96 mx-auto flex-col gap-4" >
         
         <TextField
           isRequired
@@ -67,7 +87,7 @@ const LoginPage = () => {
 
 <p className='text-center'>Or</p>
 
- <Button className="w-full rounded-md" variant="tertiary">
+ <Button onClick={handleGoogleLogin} className="w-full rounded-md" variant="tertiary">
         <Icon icon="devicon:google" />
         Login with Google
       </Button>

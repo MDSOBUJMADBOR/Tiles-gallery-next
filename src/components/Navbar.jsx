@@ -3,19 +3,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/tiles.png"
-import { Button } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
 import MyNavLink from "./MyNavLink";
 import { useState } from "react";
 import { Menu, X } from 'lucide-react';
+import { authClient } from "@/lib/auth-client";
 
 // import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
-// const userData = authClient.useSession();
-// const user = userData.data?.user;
-// const handleSignOut = async () => {
-// await authClient.signOut();
-// }
+const userData = authClient.useSession();
+const user = userData.data?.user;
+const handleSignOut = async () => {
+await authClient.signOut();
+}
 const toggleMenu = () => {
   setOpen(prev => !prev);
 };
@@ -98,18 +99,16 @@ navItems.map((item,index) => (<MyNavLink key={index} href={item.path}>
   </li>
 </ul>
 </div>
-{/* small device ent */}
+{/* small device ent */} 
 
 
 
         <div className="sm:flex hidden gap-4">
-          {/* {!user && 
+          {!user && 
             <ul className="flex items-center gap-4  text-sm">
+            
             <li>
-              <Link href={"/signup"}><Button >SignUp</Button></Link>
-            </li>
-            <li>
-              <Link href={"/signin"}><Button>SignIn</Button></Link>
+              <Link href={"/login"}><Button>Login</Button></Link>
             </li>
           </ul>}
 
@@ -124,16 +123,16 @@ navItems.map((item,index) => (<MyNavLink key={index} href={item.path}>
                 <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback> 
               </Avatar>
 
-              <Button onClick={handleSignOut} size="sm" variant="danger">SignOut</Button>
+              <Button onClick={handleSignOut} size="sm" variant="danger">LoginOut</Button>
             </div>
-          )} */}
+          )}
 
-<ul className="flex items-center gap-4  text-sm">
+{/* <ul className="flex items-center gap-4  text-sm">
             
             <li>
               <Link href={"/login"}><Button>Login</Button></Link>
             </li>
-</ul>
+</ul> */}
 
 
         </div>
