@@ -121,7 +121,7 @@ navItems.map((item,index) => (<MyNavLink key={index} href={item.path}>
                   src={user?.image}
                   referrerPolicy="no-referrer"
                 />
-                <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
+                <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback> 
               </Avatar>
 
               <Button onClick={handleSignOut} size="sm" variant="danger">SignOut</Button>

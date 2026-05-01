@@ -1,4 +1,6 @@
+import Link from "next/link";
 import TilesCard from "./TilesCard";
+import { Button } from "@heroui/react";
 
 
 const FeaturedTiles =async () => {
@@ -17,7 +19,9 @@ topTiles.map(tiles => <TilesCard key={tiles.id} tiles={tiles}></TilesCard>)
 }
 </div>
 
-
+<div className="flex justify-center items-center mb-5">
+<Link href={`/all-tiles`}><Button variant="outline" className="rounded-md text-black border-none ">View All</Button></Link>
+</div>
                     </div>
           );
 };

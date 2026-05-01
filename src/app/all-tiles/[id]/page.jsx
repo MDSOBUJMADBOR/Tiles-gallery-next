@@ -1,3 +1,4 @@
+import { Button } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -12,7 +13,7 @@ const tile = tiles.find(p => p.id == id)
             return (
        <div className="min-h-screen bg-gray-100 p-6">
       {/* Back */}
-      <Link href={"/all-photos"}><button className="mb-4 text-sm font-semibold cursor-p text-gray-600 hover:text-black">
+      <Link href={"/all-tiles"}><button className="mb-4 text-sm font-semibold cursor-p text-gray-600 hover:text-black">
         ← Back to Gallery
       </button></Link>
 
@@ -31,6 +32,7 @@ const tile = tiles.find(p => p.id == id)
           {/* Right Side */}
           <div className="space-y-4">
             <h1 className="text-3xl font-bold">{tile.title}</h1>
+            <h2 className='text-xl font-bold'>by <span className=' text-blue-500 '>TileGallery Studio</span></h2>
 
             {/* badges */}
              
@@ -44,16 +46,32 @@ const tile = tiles.find(p => p.id == id)
             
             </div> 
            
-<div>
-<div className='flex gap-30'>
-          <p>Price:</p>
-          <p>{tile.price}</p>
+<div className='max-w-100 space-y-5 '>
+<div className='flex justify-between'>
+          <p className=''>Price:</p>
+          <p className='font-bold'>{tile.price} {tile.currency}</p>
 </div>
-<div></div>
-
+<div className='flex justify-between'>
+          <p>Dimensions:</p>
+          <p className='font-bold'>{tile.dimensions}</p>
+</div>
+<div className='flex justify-between'>
+          <p>Material:</p>
+          <p className='font-bold'>{tile.material}</p>
+</div>
+<div className='flex justify-between'>
+          <p>InStock:</p>
+         
+          <p className='font-bold'>{tile.inStock.toString()}</p>
 </div>
 
 
+</div>
+
+<div className='flex gap-4'> 
+  <Button  className="rounded-md  border border-black text-white">Add to Cart</Button>
+  <Button variant="outline" className="rounded-md text-black border border-black hover:bg-[#0f4ea6] hover:text-white hover:border-white">Save</Button>
+</div>
            
 
           

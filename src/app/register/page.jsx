@@ -1,20 +1,35 @@
 'use client'
 
-import { Button, Description, FieldError, Input, Label, TextField,Card } from '@heroui/react';
-import { Check  } from 'lucide-react';
-import {Icon} from "@iconify/react";
+import { Button, Card, Description, FieldError, Input, Label, TextField } from '@heroui/react';
+import { Icon } from '@iconify/react';
 import Link from 'next/link';
 
 
-const LoginPage = () => {
+const RegisterPage = () => {
 
 
+    
+
+  
 
   return (
-    <Card className='border mx-auto max-w-120 py-10 my-10'>
-          <h1 className="text-center text-2xl font-bold">Login</h1>
+    <Card className=" border mx-auto max-w-120 py-10 my-10">
+      <h1 className="text-center text-2xl font-bold">Register</h1>
+
       <form className="flex w-96 mx-auto flex-col gap-4" >
-        
+
+        <TextField isRequired name="name" type="text">
+          <Label>Name</Label>
+          <Input placeholder="Enter your name" />
+          <FieldError />
+        </TextField>
+
+        <TextField isRequired name="image" type="text">
+          <Label>Image URL</Label>
+          <Input placeholder="Image URL" />
+          <FieldError />
+        </TextField>
+
         <TextField
           isRequired
           name="email"
@@ -27,7 +42,7 @@ const LoginPage = () => {
           }}
         >
           <Label>Email</Label>
-          <Input placeholder="Enter Your Email" />
+          <Input placeholder="Enter You Email" />
           <FieldError />
         </TextField>
 
@@ -57,11 +72,7 @@ const LoginPage = () => {
           <FieldError />
         </TextField>
 
-      
-<Button className="w-full rounded-md" type="submit">Login  </Button>      
-
-         
-   
+<Button className="w-full rounded-md" type="submit">Register </Button>    
 
       </form>
 
@@ -69,11 +80,13 @@ const LoginPage = () => {
 
  <Button className="w-full rounded-md" variant="tertiary">
         <Icon icon="devicon:google" />
-        Login with Google
+        Continue with Google
       </Button>
-<p className='text-center'>Don't have an account? <Link href={"/register"}><span className='text-blue-500'>Register</span></Link> </p>
+<p className='text-center'>Already have an account? <Link href={"/login"}><span className='text-blue-500'>Login</span></Link> </p>
+   
+
     </Card>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

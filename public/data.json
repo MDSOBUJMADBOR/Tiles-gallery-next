@@ -103,7 +103,7 @@
     "category": "marble",
     "price": 88.0,
     "currency": "USD",
-    "dimensions": "80x80 cm",
+    "dimensions": "80x80 cm", 
     "material": "Marble",
     "inStock": true
   },
