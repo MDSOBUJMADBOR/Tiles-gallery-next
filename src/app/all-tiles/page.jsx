@@ -6,9 +6,9 @@ const res = await fetch("https://tiles-gallery-next.vercel.app/data.json")
 const tiles = await res.json()
 console.log(tiles);
           return (
-                    <div>
+                    <div className='my-10'>
 
- <div className='grid grid-cols-4 gap-5'>
+ <div className='grid grid-cols-1 md:grid-cols-4 gap-5 max-w-7xl mx-auto '>
 {
 tiles.map(tiles => <TilesCard key={tiles.id} tiles={tiles}></TilesCard>)
 }

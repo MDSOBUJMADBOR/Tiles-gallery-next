@@ -11,7 +11,7 @@ const topTiles = tiles.slice(0,4)
           return (
                     <div className="max-w-7xl mx-auto">
 <h1 className="text-2xl font-bold mt-7">Featured Tiles</h1>
-<div className="grid grid-cols-4 gap-5">
+<div className="grid grid-cols-1 md:grid-cols-4 gap-3 max-w-7xl mx-auto my-10">
 {
 topTiles.map(tiles => <TilesCard key={tiles.id} tiles={tiles}></TilesCard>)
 }
