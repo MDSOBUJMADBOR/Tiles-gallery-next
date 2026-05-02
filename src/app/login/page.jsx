@@ -1,40 +1,39 @@
 'use client'
-
 import { authClient } from '@/lib/auth-client';
 import { Button, Description, FieldError, Input, Label, TextField,Card } from '@heroui/react';
 import {Icon} from "@iconify/react";
-import Link from 'next/link';
 import { toast } from 'react-toastify';
-
+import Link from 'next/link';
 
 const LoginPage = () => {
+
 const onSubmit = async (e) => {
 e.preventDefault();
 const email = e.target.email.value;
 const password = e.target.password.value;
 
-const {data, error} = await authClient.signIn.email({
-  email,
-  password,
-  callbackURL: "/",
+const {data,error} = await authClient.signIn.email({ 
+email,
+password,
+callbackURL: "/",
 })
 console.log(data,error);
+
 if(error){
   toast.error(error.message);
 }
 }
 
-const handleGoogleLogin = async () => {
+const handleGoogleSignIn = async () => {
   await authClient.signIn.social({
     provider: 'google'
   })
 }
 
   return (
-   <div className='max-w-80 md:max-w-120 mx-auto '>
-     <Card className='border my-10 '>
-          <h1 className="text-center text-2xl font-bold">Login</h1>
-      <form onSubmit={onSubmit} className="flex max-w-96 mx-auto flex-col gap-4" >
+    <Card className='border mx-auto w-125 py-10 mt-5'>
+          <h1 className="text-center text-2xl font-bold">Sign In</h1>
+      <form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
         
         <TextField
           isRequired
@@ -74,27 +73,22 @@ const handleGoogleLogin = async () => {
           <Input placeholder="Enter your password" />
           <Description>
             Must be at least 8 characters with 1 uppercase and 1 number
-          </Description>
-          <FieldError />
+          </Description> 
+          <FieldError /> 
         </TextField>
 
-      
-<Button className="w-full rounded-md" type="submit">Login  </Button>      
-
-         
-   
+  <Button className="w-full rounded-md" type="submit">Login  </Button> 
 
       </form>
 
 <p className='text-center'>Or</p>
 
- <Button onClick={handleGoogleLogin} className="w-full rounded-md" variant="tertiary">
+<Button onClick={handleGoogleSignIn} className="w-96 mx-auto " variant="tertiary">
         <Icon icon="devicon:google" />
-        Login with Google
+        Sign in with Google
       </Button>
 <p className='text-center'>Don't have an account? <Link href={"/register"}><span className='text-blue-500'>Register</span></Link> </p>
     </Card>
-   </div>
   );
 };
 

@@ -49,7 +49,7 @@ Tiles Gallery একটি modern ও responsive web application যেখান
 
 ---
 
-### 🖼️ All Tiles Page
+### 🖼️ All Tiles Page 
 - Search bar (tile title দিয়ে search)
 - Tile Cards:
   - Image
