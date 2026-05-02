@@ -1,52 +1,41 @@
 'use client'
 import { authClient } from '@/lib/auth-client';
-import { Button, Card, Description, FieldError, Input, Label, TextField } from '@heroui/react';
-import { Icon } from '@iconify/react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { Button, Description, FieldError, Input, Label, TextField,Card } from '@heroui/react';
+import {Icon} from "@iconify/react";
 import { toast } from 'react-toastify';
-
+import Link from 'next/link';
 
 const RegisterPage = () => {
-const router = useRouter()
+
 const onSubmit = async (e) => {
 e.preventDefault();
- const name = e.target.name.value;
-    const image = e.target.image.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-  
-const {data, error} = await authClient.signUp.email({
-  name,
-  email,
-  password,
-  image,
-})
-      if(!error){
-          router.push("/")
-      }
-      if(error){
-         toast.error(error.message);
-            }
+const email = e.target.email.value;
+const password = e.target.password.value;
 
+const {data,error} = await authClient.signIn.email({ 
+email,
+password,
+callbackURL: "/",
+})
 console.log(data,error);
+
+if(error){
+  toast.error(error.message);
+}
 }
 
-  const handleGoogleLogin = async () => {
+const handleGoogleRegister = async () => {
   await authClient.signIn.social({
     provider: 'google'
   })
 }
 
-  
-
   return (
-    <Card className=" border max-w-80 md:max-w-120  mx-auto  py-10 my-10">
-      <h1 className="text-center text-2xl font-bold">Register</h1>
-
-      <form onSubmit={onSubmit} className="flex max-w-96 mx-auto flex-col gap-4 "  >
-
-        <TextField isRequired name="name" type="text">
+    <Card className='border mx-auto max-w-125  my-10 '>
+          <h1 className="text-center text-2xl font-bold">Register</h1>
+      <form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
+        
+ <TextField isRequired name="name" type="text">
           <Label>Name</Label>
           <Input placeholder="Enter your name" />
           <FieldError />
@@ -57,6 +46,8 @@ console.log(data,error);
           <Input placeholder="Image URL" />
           <FieldError />
         </TextField>
+
+
 
         <TextField
           isRequired
@@ -70,7 +61,7 @@ console.log(data,error);
           }}
         >
           <Label>Email</Label>
-          <Input placeholder="Enter You Email" />
+          <Input placeholder="Enter Your Email" />
           <FieldError />
         </TextField>
 
@@ -96,23 +87,21 @@ console.log(data,error);
           <Input placeholder="Enter your password" />
           <Description>
             Must be at least 8 characters with 1 uppercase and 1 number
-          </Description>
-          <FieldError />
+          </Description> 
+          <FieldError /> 
         </TextField>
 
-<Button className="w-full rounded-md" type="submit">Register </Button>    
+  <Button className="w-full rounded-md" type="submit">Register</Button> 
 
       </form>
 
 <p className='text-center'>Or</p>
 
- <Button onClick={handleGoogleLogin} className="w-full rounded-md" variant="tertiary">
+<Button onClick={handleGoogleRegister} className="w-96 mx-auto " variant="tertiary">
         <Icon icon="devicon:google" />
-        Continue with Google
+        Sign in with Google
       </Button>
-<p className='text-center'>Already have an account? <Link href={"/login"}><span className='text-blue-500'>Login</span></Link> </p>
-   
-
+<p className='text-center'>Don't have an account? <Link href={"/login"}><span className='text-blue-500'>login</span></Link> </p>
     </Card>
   );
 };
