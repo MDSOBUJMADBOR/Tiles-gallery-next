@@ -14,11 +14,12 @@ import { authClient } from "@/lib/auth-client";
 const Navbar = () => {
 const userData = authClient.useSession();
 const user = userData.data?.user;
+console.log(user,'us');
 const handleSignOut = async () => {
 await authClient.signOut();
 }
 const toggleMenu = () => {
-  setOpen(prev => !prev);
+  setOpen(prev => !prev); 
 };
 
 const navItems = [
