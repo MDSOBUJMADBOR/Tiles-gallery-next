@@ -6,7 +6,7 @@ import React from 'react';
 const TilesCard = ({tiles}) => {
 console.log(tiles);
           return (
-          <Card className="card bg-base-100 max-w-96 shadow-lg mx-5">
+          <Card className="card bg-base-100 max-w-96 shadow-lg mx-5 transition duration-500 hover:scale-108">
  <div className="relative w-full aspect-square">
     <Image
       src={tiles.image}

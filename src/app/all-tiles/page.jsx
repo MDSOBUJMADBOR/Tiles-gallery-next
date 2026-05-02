@@ -21,7 +21,7 @@ console.log(tiles);
 </div>
 
 <h1 className='font-bold text-3xl '>All Tiles</h1>
- <div className='grid grid-cols-1 md:grid-cols-4 gap-5 max-w-7xl mx-auto '>
+ <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 max-w-7xl mx-auto '>
 {
 tiles.map(tiles => <TilesCard key={tiles.id} tiles={tiles}></TilesCard>)
 }
