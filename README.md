@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🧱 Tiles Gallery
 
-## Getting Started
+## 📌 Project Overview
+Tiles Gallery একটি modern ও responsive web application যেখানে বিভিন্ন ধরনের aesthetic tiles showcase করা হয়। ব্যবহারকারী tiles browse করতে পারে, search করতে পারে এবং বিস্তারিত তথ্য দেখতে পারে।
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🎯 Project Purpose
+- Next.js (App Router) দিয়ে full-stack project তৈরি করা
+- Authentication system implement করা
+- Responsive UI design করা
+- JSON data ও API নিয়ে কাজ করা
+- Protected route handle করা
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🌐 Live URL
+👉  https://tiles-gallery-next.vercel.app
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🚀 Key Features
 
-To learn more about Next.js, take a look at the following resources:
+### 🧱 Layout & Navigation
+- Responsive Navbar (Logo, Home, All Tiles, My Profile)
+- Login / Logout system
+- Custom Footer (Social Links + Contact)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🏠 Home Page
+- Banner: "Discover Your Perfect Aesthetic"
+- Marquee text (New Arrivals, Weekly Feature)
+- Featured Tiles (Top 4 tiles)
+- View Details button
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 🔐 Authentication
+- Email & Password Login
+- Google Login
+- Register system:
+  - Name
+  - Email
+  - Photo URL
+  - Password
+- Error handling (toast/message)
+- সফল হলে Home page redirect
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+### 🖼️ All Tiles Page
+- Search bar (tile title দিয়ে search)
+- Tile Cards:
+  - Image
+  - Title
+  - Details button
+
+---
+
+### 🔍 Tile Details Page (Private)
+- Large image preview
+- Tile details:
+  - Title
+  - Description
+  - Category
+  - Price
+  - Tags
+
+---
+
+### 👤 My Profile (Private)
+- User information display
+- Update feature (Name + Image)
+
+---
+
+### ✏️ Update Profile
+- Separate update page
+- Input:
+  - Name
+  - Image URL
+- Update button
+
+---
+
+## 🛠️ Technologies Used
+
+- Next.js (App Router)
+- React.js
+- MongoDB
+- BetterAuth
+- Tailwind CSS
+- DaisyUI / HeroUI
+
+---
+
+## 📦 NPM Packages
+- animate.css / swiper.js
+- react-icons
+- axios / fetch
+
+---
+
+## 📁 JSON Data Example
+
+```json
+{
+  "id": "tile_001",
+  "title": "Ceramic Blue Tile",
+  "description": "Premium ceramic tile with blue glaze finish",
+  "image": "/images/tiles/tile_001.jpg",
+  "category": "ceramic",
+  "price": 45.99,
+  "currency": "USD",
+  "dimensions": "60x60 cm",
+  "material": "Ceramic",
+  "inStock": true
+}
