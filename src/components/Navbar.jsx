@@ -90,14 +90,34 @@ navItems.map((item,index) => (<MyNavLink key={index} href={item.path}>
     </li>
   ))}
 
-  <li className="w-full px-4">
+
+
+
+
+{!user && <li className="w-full px-4">
     <Link
       href="/login"
       className="block w-full py-2 text-center rounded-lg transition-all duration-300 ease-in-out hover:bg-[#3cd86b] text-white"
     >
       <Button className="text-lg " variant="light">Login</Button>
     </Link>
-  </li>
+  </li>}
+{user && <li className="flex gap-3">
+              <Avatar size="sm">
+                <Avatar.Image
+                  alt="John Doe"
+                  src={user?.image}
+                  referrerPolicy="no-referrer"
+                />
+                <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback> 
+              </Avatar>
+
+              <Button onClick={handleSignOut} size="sm" variant="danger">LoginOut</Button>
+            </li>
+}
+
+
+
 </ul>
 </div>
 {/* small device ent */} 
@@ -127,14 +147,6 @@ navItems.map((item,index) => (<MyNavLink key={index} href={item.path}>
               <Button onClick={handleSignOut} size="sm" variant="danger">LoginOut</Button>
             </div>
           )}
-
-{/* <ul className="flex items-center gap-4  text-sm">
-            
-            <li>
-              <Link href={"/login"}><Button>Login</Button></Link>
-            </li>
-</ul> */}
-
 
         </div>
       </nav>
