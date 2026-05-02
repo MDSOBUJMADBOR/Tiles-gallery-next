@@ -15,8 +15,8 @@ await authClient.updateUser({
 
           return (
   <Modal>
-      <Button variant="secondary">
-        <BiEdit /> Update Profile
+      <Button className="rounded-lg">
+        <BiEdit /> Update Information
       </Button>
       <Modal.Backdrop>
         <Modal.Container placement="auto">

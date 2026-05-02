@@ -41,10 +41,10 @@ console.log(data,error);
   
 
   return (
-    <Card className=" border mx-auto max-w-120 py-10 my-10">
+    <Card className=" border max-w-80 md:max-w-120  mx-auto  py-10 my-10">
       <h1 className="text-center text-2xl font-bold">Register</h1>
 
-      <form onSubmit={onSubmit} className="flex w-96 mx-auto flex-col gap-4 "  >
+      <form onSubmit={onSubmit} className="flex max-w-96 mx-auto flex-col gap-4 "  >
 
         <TextField isRequired name="name" type="text">
           <Label>Name</Label>
