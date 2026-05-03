@@ -31,9 +31,9 @@ const handleGoogleSignIn = async () => {
 }
 
   return (
-    <Card className='border mx-auto max-w-125  my-10 '>
+    <Card className='border mx-auto md:max-w-125  md:my-10 overflow-x-hidden '>
           <h1 className="text-center text-2xl font-bold">Login</h1>
-      <form className="flex w-96 mx-auto flex-col gap-4" onSubmit={onSubmit}>
+      <form className="flex md:w-96 w-full  mx-auto flex-col gap-4" onSubmit={onSubmit}>
         
         <TextField
           isRequired
