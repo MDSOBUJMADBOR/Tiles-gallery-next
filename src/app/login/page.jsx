@@ -24,7 +24,7 @@ if(error){
 }
 }
 
-const handleGoogleSignIn = async () => {
+const handleGoogleLogin = async () => { 
   await authClient.signIn.social({
     provider: 'google'
   })
@@ -83,7 +83,7 @@ const handleGoogleSignIn = async () => {
 
 <p className='text-center'>Or</p>
 
-<Button onClick={handleGoogleSignIn} className="w-96 mx-auto " variant="tertiary">
+<Button onClick={handleGoogleLogin} className="w-96 mx-auto " variant="tertiary">
         <Icon icon="devicon:google" />
         Sign in with Google
       </Button>

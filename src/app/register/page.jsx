@@ -4,19 +4,27 @@ import { Button, Description, FieldError, Input, Label, TextField,Card } from '@
 import {Icon} from "@iconify/react";
 import { toast } from 'react-toastify';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const RegisterPage = () => {
+const router = useRouter()
 
 const onSubmit = async (e) => {
 e.preventDefault();
+const name = e.target.name.value;
+const image = e.target.image.value;
 const email = e.target.email.value;
 const password = e.target.password.value;
 
-const {data,error} = await authClient.signIn.email({ 
+const {data,error} = await authClient.signUp.email({  
+name,
 email,
 password,
-callbackURL: "/",
+image,
 })
+if(!error) {
+ router.push("/")
+}
 console.log(data,error);
 
 if(error){
