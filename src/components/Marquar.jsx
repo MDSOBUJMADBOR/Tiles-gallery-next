@@ -1,6 +1,5 @@
 import React from 'react';
 import Marquee from 'react-fast-marquee';
-// New Arrivals: Marble Shine Tile | Weekly Feature: Modern Geometric Patterns | Join the Community...
 const news = [
     {
         id:"1",

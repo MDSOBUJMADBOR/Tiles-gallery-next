@@ -7,7 +7,7 @@ import { ImLinkedin } from "react-icons/im";
 const Footer = () => {
   return (
     <footer className=" bg-[#0f172a]  text-gray-300">
-      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-start">
+      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center md:text-start">
 
         {/* Logo + Description */}
         <div className="md:col-span-1">
@@ -26,20 +26,9 @@ const Footer = () => {
             <Link href={"/"}><li className="hover:text-white cursor-pointer">Home</li></Link>
             <Link href={"/all-tiles"}><li className="hover:text-white cursor-pointer my-3">All Tiles</li></Link>
             <Link href={"/profile"}><li className="hover:text-white cursor-pointer">My Profile</li></Link>
-            {/* <li className="hover:text-white cursor-pointer">All Tiles</li>
-            <li className="hover:text-white cursor-pointer">My Profile</li> */}
-          </ul>
+             </ul>
         </div>
 
-        {/* Help */}
-        {/* <div>
-          <h3 className="text-white font-semibold mb-3">Help</h3>
-          <ul className="space-y-2 text-sm">
-            <li className="hover:text-white cursor-pointer">About Us</li>
-            <li className="hover:text-white cursor-pointer">Contact Us</li>
-            <li className="hover:text-white cursor-pointer">FAQ</li>
-          </ul>
-        </div> */}
 
         {/* Contact */}
         <div>
