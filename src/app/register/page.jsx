@@ -111,7 +111,7 @@ const handleGoogleRegister = async () => {
 
 <Button onClick={handleGoogleRegister} className="w-96 mx-auto " variant="tertiary">
         <Icon icon="devicon:google" />
-        Sign in with Google
+        Register with Google
       </Button>
 <p className='text-center'>Don't have an account? <Link href={"/login"}><span className='text-blue-500'>login</span></Link> </p>
     </Card>

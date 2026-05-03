@@ -8,7 +8,6 @@ import Link from 'next/link';
 
 
 const LoginPage = () => {
-
 const onSubmit = async (e) => {
 e.preventDefault();
 const email = e.target.email.value;
@@ -87,7 +86,7 @@ const handleGoogleLogin = async () => {
 
 <Button onClick={handleGoogleLogin} className="w-96 mx-auto " variant="tertiary">
         <Icon icon="devicon:google" />
-        Sign in with Google
+       Login with Google
       </Button>
 <p className='text-center'>Don't have an account? <Link href={"/register"}><span className='text-blue-500'>Register</span></Link> </p>
     </Card>
