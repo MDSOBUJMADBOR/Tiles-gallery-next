@@ -1,111 +1,176 @@
 # 🧱 Tiles Gallery
 
-## 📌 Project Overview
-
-**Tiles Gallery** is a modern and responsive web application that showcases a collection of aesthetic and high-quality tiles. Users can browse different tile categories, search for specific products, and view detailed information about each tile through an intuitive and user-friendly interface.
+A modern and responsive full-stack web application that showcases a collection of aesthetic and premium-quality tiles. Users can browse tile collections, search products, view detailed information, and manage their profiles with secure authentication.
 
 ---
 
-## 🎯 Project Purpose
+## 📸 Project Screenshot
 
-* Build a full-stack web application using **Next.js (App Router)**.
-* Implement a secure user authentication system.
-* Create a modern, responsive, and user-friendly UI.
-* Work with JSON data and REST APIs.
-* Protect private routes and manage user access.
+> Replace this image with your project screenshot.
 
+![Tiles Gallery Screenshot](./public/screenshot.png)
 
 ---
 
-## 🌐 Live URL
-👉  https://tiles-gallery-next.vercel.app
+## 🌐 Live Demo
+
+🔗 **Live Site:** https://tiles-gallery-next.vercel.app
 
 ---
 
-## 🚀 Key Features
+## 📖 Project Overview
 
-### 🧱 Layout & Navigation
-- Responsive Navbar (Logo, Home, All Tiles, My Profile)
-- Login / Logout system
-- Custom Footer (Social Links + Contact)
+**Tiles Gallery** is built with **Next.js App Router** to provide a fast and modern user experience. It includes secure authentication, responsive UI, protected routes, and dynamic tile management.
 
----
+The application allows users to:
 
-### 🏠 Home Page
-- Banner: "Discover Your Perfect Aesthetic"
-- Marquee text (New Arrivals, Weekly Feature)
-- Featured Tiles (Top 4 tiles)
-- View Details button
+- Browse aesthetic tile collections
+- Search tiles by title
+- View detailed tile information
+- Register and log in securely
+- Update profile information
+- Access protected pages
 
 ---
 
-### 🔐 Authentication
-- Email & Password Login
-- Google Login
-- Register system:
-  - Name
-  - Email
-  - Photo URL
-  - Password
-- Error handling (toast/message)
-- সফল হলে Home page redirect
-
----
-
-### 🖼️ All Tiles Page
-- Search bar (tile title দিয়ে search)
-- Tile Cards:
-  - Image
-  - Title
-  - Details button
-
----
-
-### 🔍 Tile Details Page (Private)
-- Large image preview
-- Tile details:
-  - Title
-  - Description
-  - Category
-  - Price
-  - Tags
-
----
-
-### 👤 My Profile (Private)
-- User information display
-- Update feature (Name + Image)
-
----
-
-### ✏️ Update Profile
-- Separate update page
-- Input:
-  - Name
-  - Image URL
-- Update button
-
----
-
-## 🛠️ Technologies Used
+## 🚀 Technologies Used
 
 - Next.js (App Router)
 - React.js
 - MongoDB
 - BetterAuth
 - Tailwind CSS
-- DaisyUI / HeroUI
+- DaisyUI
+- HeroUI
+- JavaScript (ES6+)
 
 ---
 
-## 📦 NPM Packages
-- animate.css / swiper.js
-- react-icons
-- axios / fetch
+## ✨ Core Features
+
+- 🔐 Email & Password Authentication
+- 🔑 Google Authentication
+- 🏠 Responsive Home Page
+- 🧱 Featured Tiles Section
+- 🔍 Search Tiles by Title
+- 🔒 Protected Tile Details Page
+- 👤 User Profile Management
+- ✏️ Update User Profile
+- 📱 Mobile-Friendly Responsive Design
 
 ---
 
-## 📁 JSON Data Example
+## 📦 Dependencies
+
+```json
+{
+  "next": "^15.x",
+  "react": "^19.x",
+  "react-dom": "^19.x",
+  "mongodb": "^6.x",
+  "better-auth": "^1.x",
+  "axios": "^1.x",
+  "tailwindcss": "^4.x",
+  "daisyui": "^5.x",
+  "heroui": "^2.x",
+  "react-icons": "^5.x",
+  "swiper": "^11.x",
+  "animate.css": "^4.x"
+}
+```
+
+---
+
+## ⚙️ Getting Started
+
+### Prerequisites
+
+Make sure you have installed:
+
+- Node.js
+- npm or yarn
+- MongoDB
+
+---
+
+### Installation
+
+#### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/tiles-gallery.git
+```
+
+#### 2. Navigate to the project folder
+
+```bash
+cd tiles-gallery
+```
+
+#### 3. Install dependencies
+
+```bash
+npm install
+```
+
+---
+
+## 🔑 Environment Variables
+
+Create a **.env.local** file in the root directory and add the following variables:
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+
+BETTER_AUTH_SECRET=your_secret_key
+
+BETTER_AUTH_URL=http://localhost:3000
+```
+
+---
+
+## ▶️ Run the Project
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open your browser and visit:
+
+```
+http://localhost:3000
+```
+
+To build for production:
+
+```bash
+npm run build
+```
+
+Run the production server:
+
+```bash
+npm start
+```
+
+---
+
+## 📂 Project Structure
+
+```
+app/
+components/
+public/
+lib/
+hooks/
+styles/
+```
+
+---
+
+## 📁 Sample JSON Data
 
 ```json
 {
@@ -113,10 +178,39 @@
   "title": "Ceramic Blue Tile",
   "description": "Premium ceramic tile with blue glaze finish",
   "image": "/images/tiles/tile_001.jpg",
-  "category": "ceramic",
+  "category": "Ceramic",
   "price": 45.99,
   "currency": "USD",
   "dimensions": "60x60 cm",
   "material": "Ceramic",
   "inStock": true
 }
+```
+
+---
+
+## 🔗 Relevant Links
+
+- 🌐 Live Site: https://tiles-gallery-next.vercel.app
+- 💻 GitHub Repository: https://github.com/your-username/tiles-gallery
+- 📚 Next.js Documentation: https://nextjs.org/docs
+- 🍃 MongoDB Documentation: https://www.mongodb.com/docs/
+- 🎨 Tailwind CSS: https://tailwindcss.com/docs
+
+---
+
+## 👨‍💻 Author
+
+**Sobuj Madbor**
+
+MERN Stack Developer
+
+GitHub: https://github.com/MDSOBUJMADBOR
+
+LinkedIn: https://www.linkedin.com/in/md-sobuj-madbor
+
+---
+
+## ⭐ Show Your Support
+
+If you like this project, please consider giving it a ⭐ on GitHub.
