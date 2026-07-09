@@ -1,16 +1,19 @@
 # 🧱 Tiles Gallery
 
 ## 📌 Project Overview
-Tiles Gallery একটি modern ও responsive web application যেখানে বিভিন্ন ধরনের aesthetic tiles showcase করা হয়। ব্যবহারকারী tiles browse করতে পারে, search করতে পারে এবং বিস্তারিত তথ্য দেখতে পারে।
+
+**Tiles Gallery** is a modern and responsive web application that showcases a collection of aesthetic and high-quality tiles. Users can browse different tile categories, search for specific products, and view detailed information about each tile through an intuitive and user-friendly interface.
 
 ---
 
 ## 🎯 Project Purpose
-- Next.js (App Router) দিয়ে full-stack project তৈরি করা
-- Authentication system implement করা
-- Responsive UI design করা
-- JSON data ও API নিয়ে কাজ করা
-- Protected route handle করা
+
+* Build a full-stack web application using **Next.js (App Router)**.
+* Implement a secure user authentication system.
+* Create a modern, responsive, and user-friendly UI.
+* Work with JSON data and REST APIs.
+* Protect private routes and manage user access.
+
 
 ---
 
