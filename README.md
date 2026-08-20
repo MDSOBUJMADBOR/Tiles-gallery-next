@@ -12,6 +12,7 @@ A modern and responsive full-stack web application that showcases a collection o
 
 ---
 
+
 ## 🌐 Live Demo
 
 🔗 **Live Site:** https://tiles-gallery-next.vercel.app
@@ -45,6 +46,7 @@ The application allows users to:
 - JavaScript (ES6+)
 
 ---
+
 
 ## ✨ Core Features
 
