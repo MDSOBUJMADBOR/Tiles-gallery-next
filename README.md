@@ -12,7 +12,6 @@ A modern and responsive full-stack web application that showcases a collection o
 
 ---
 
-
 ## 🌐 Live Demo
 
 🔗 **Live Site:** https://tiles-gallery-next.vercel.app
@@ -30,7 +29,6 @@ The application allows users to:
 - View detailed tile information
 - Register and log in securely
 - Update profile information
-- Access protected pages
 
 ---
 
