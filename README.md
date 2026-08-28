@@ -195,7 +195,7 @@ styles/
 - 💻 GitHub Repository: https://github.com/your-username/tiles-gallery
 - 📚 Next.js Documentation: https://nextjs.org/docs
 - 🍃 MongoDB Documentation: https://www.mongodb.com/docs/
-- 🎨 Tailwind CSS: https://tailwindcss.com/docs
+
 
 ---
 
