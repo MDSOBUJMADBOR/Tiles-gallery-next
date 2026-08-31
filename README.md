@@ -10,6 +10,8 @@ A modern and responsive full-stack web application that showcases a collection o
 
 ![Tiles Gallery Screenshot](./public/screenshot.png)
 
+
+
 ---
 
 ## 🌐 Live Demo
@@ -51,7 +53,6 @@ The application allows users to:
 - 🔐 Email & Password Authentication
 - 🔑 Google Authentication
 - 🏠 Responsive Home Page
-- 🧱 Featured Tiles Section
 - 🔍 Search Tiles by Title
 - 🔒 Protected Tile Details Page
 - 👤 User Profile Management
