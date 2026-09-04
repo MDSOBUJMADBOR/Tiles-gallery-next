@@ -10,8 +10,6 @@ A modern and responsive full-stack web application that showcases a collection o
 
 ![Tiles Gallery Screenshot](./public/screenshot.png)
 
-
-
 ---
 
 ## 🌐 Live Demo
