@@ -42,7 +42,7 @@ The application allows users to:
 - DaisyUI
 - HeroUI
 - JavaScript (ES6+)
-
+- react-icon
 ---
 
 
