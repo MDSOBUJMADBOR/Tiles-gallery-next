@@ -43,6 +43,7 @@ The application allows users to:
 - HeroUI
 - JavaScript (ES6+)
 - react-icon
+- lucide-icon
 ---
 
 
