@@ -1,5 +1,5 @@
-"use client";
 
+"use client";
 
 import {
   Button,
@@ -10,6 +10,7 @@ import {
   TextField,
   Card,
 } from "@heroui/react";
+
 import { Icon } from "@iconify/react";
 import { toast } from "react-toastify";
 import Link from "next/link";
@@ -18,18 +19,21 @@ import { Eye, EyeOff } from "lucide-react";
 import { BsShieldLock } from "react-icons/bs";
 import { authClient } from "@/lib/auth-client";
 
-
 const LoginPage = () => {
+  const [showPassword, setShowPassword] = useState(false);
 
-const [showPassword, setShowPassword] = useState(false);
-
+  // =========================
+  // Email Login
+  // =========================
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const email = e.target.email.value;
-    const password = e.target.password.value;
+    const form = e.currentTarget;
 
-    const { data, error } = await authClient.signIn.email({
+    const email = form.email.value;
+    const password = form.password.value;
+
+    const { error } = await authClient.signIn.email({
       email,
       password,
       callbackURL: "/",
@@ -43,6 +47,9 @@ const [showPassword, setShowPassword] = useState(false);
     toast.success("Login successful!");
   };
 
+  // =========================
+  // Google Login
+  // =========================
   const handleGoogleLogin = async () => {
     try {
       await authClient.signIn.social({
@@ -55,13 +62,15 @@ const [showPassword, setShowPassword] = useState(false);
   };
 
   return (
-    <main className="  px-4 py-10 flex items-center justify-center">
-      <Card className="w-full max-w-xl border border-gray-200 bg-white/95 shadow-xl backdrop-blur-md rounded-2xl p-6 sm:p-8">
-        
-        {/* Header */}
+    <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-violet-50 via-white to-purple-100 px-4 py-10">
+      <Card className="w-full max-w-xl rounded-2xl border border-gray-200 bg-white/95 p-6 shadow-xl backdrop-blur-md sm:p-8">
+
+        {/* =========================
+            Header
+        ========================== */}
         <div className="text-center">
-          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1158ff] shadow-lg shadow-violet-200">
-            <BsShieldLock className="text-white w-8 h-8" />
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#1158ff] shadow-lg shadow-blue-200">
+            <BsShieldLock className="h-8 w-8 text-white" />
           </div>
 
           <h1 className="text-3xl font-bold tracking-tight text-gray-900">
@@ -73,12 +82,16 @@ const [showPassword, setShowPassword] = useState(false);
           </p>
         </div>
 
-        {/* Login Form */}
+        {/* =========================
+            Login Form
+        ========================== */}
         <form
-          className="flex w-full flex-col gap-5"
+          className="mt-7 flex w-full flex-col gap-5"
           onSubmit={onSubmit}
         >
-          {/* Email */}
+          {/* =========================
+              Email
+          ========================== */}
           <TextField
             isRequired
             name="email"
@@ -99,32 +112,34 @@ const [showPassword, setShowPassword] = useState(false);
               Email Address
             </Label>
 
-            <Input
-              placeholder="Your Email "
-              
-              classNames={{
-                inputWrapper:
-                  "h-12 rounded-xl border border-gray-200 bg-gray-50 shadow-none hover:border-violet-400 focus-within:border-violet-500",
-                input:
-                  "text-sm placeholder:text-gray-400",
-              }}
-              startContent={
+            <div className="relative w-full">
+              {/* Email Icon */}
+              <div className="absolute left-3 top-1/2 z-10 -translate-y-1/2">
                 <Icon
                   icon="lucide:mail"
                   className="text-lg text-gray-400"
                 />
-              }
-            />
+              </div>
+
+              <Input
+                name="email"
+                type="email"
+                placeholder="Your Email"
+                className="h-12 w-full rounded-xl border border-gray-200 bg-gray-50 pl-10 pr-4 text-sm shadow-none outline-none transition-all duration-200 placeholder:text-gray-400 focus:border-[#1158ff] focus:bg-white"
+              />
+            </div>
 
             <FieldError />
           </TextField>
 
-          {/* Password */}
+          {/* =========================
+              Password
+          ========================== */}
           <TextField
             isRequired
             minLength={8}
             name="password"
-            type="password"
+            type={showPassword ? "text" : "password"}
             validate={(value) => {
               if (value.length < 8) {
                 return "Password must be at least 8 characters";
@@ -141,38 +156,38 @@ const [showPassword, setShowPassword] = useState(false);
               return null;
             }}
           >
-            <div className="flex items-center justify-between mb-2">
+            {/* Password Label + Forgot Password */}
+            <div className="mb-2 flex items-center justify-between">
               <Label className="text-sm font-medium text-gray-700">
                 Password
               </Label>
 
               <Link
                 href="/forgot-password"
-                className="text-xs font-medium text-[#3068eb] hover:text-[#1158ff]"
+                className="text-xs font-medium text-[#3068eb] transition-colors hover:text-[#1158ff]"
               >
                 Forgot password?
               </Link>
             </div>
 
-<div className="relative">
-              <Input
-              placeholder="Enter your password"
-              className="w-full"
-             type={showPassword ? "text" : "password"}
-              classNames={{
-                inputWrapper:
-                  "h-12 rounded-xl border border-gray-200 bg-gray-50 shadow-none hover:border-violet-400 focus-within:border-violet-500",
-                input:
-                  "text-sm placeholder:text-gray-400",
-              }}
-              startContent={
+            <div className="relative w-full">
+              {/* Password Icon */}
+              <div className="absolute left-3 top-1/2 z-10 -translate-y-1/2">
                 <Icon
                   icon="lucide:lock"
                   className="text-lg text-gray-400"
                 />
-              }
-            />
- <button
+              </div>
+
+              <Input
+                name="password"
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter your password"
+                className="h-12 w-full rounded-xl border border-gray-200 bg-gray-50 pl-10 pr-12 text-sm shadow-none outline-none transition-all duration-200 placeholder:text-gray-400 focus:border-[#1158ff] focus:bg-white"
+              />
+
+              {/* Show / Hide Password */}
+              <button
                 type="button"
                 onClick={() =>
                   setShowPassword((prev) => !prev)
@@ -190,7 +205,7 @@ const [showPassword, setShowPassword] = useState(false);
                   <Eye className="h-5 w-5" />
                 )}
               </button>
-</div>
+            </div>
 
             <Description className="mt-1 text-xs text-gray-400">
               At least 8 characters, 1 uppercase letter and 1 number
@@ -199,53 +214,64 @@ const [showPassword, setShowPassword] = useState(false);
             <FieldError />
           </TextField>
 
-          {/* Login Button */}
+          {/* =========================
+              Login Button
+          ========================== */}
           <Button
             type="submit"
-            className="h-12 w-full rounded-xl bg-[#2e62db] text-sm font-semibold text-white shadow-lg shadow-violet-200 transition-all hover:bg-[#1158ff] hover:shadow-xl"
+            className="flex h-12 w-full items-center justify-center rounded-xl bg-[#2e62db] text-sm font-semibold text-white shadow-lg shadow-blue-200 transition-all duration-300 hover:bg-[#1158ff] hover:shadow-xl"
           >
-           
             Sign In
           </Button>
         </form>
 
-        {/* Divider */}
+        {/* =========================
+            Divider
+        ========================== */}
         <div className="my-2 flex items-center gap-3">
           <div className="h-px flex-1 bg-gray-200" />
 
-          <span className="text-xs font-medium text-gray-400">
+          <span className="whitespace-nowrap text-xs font-medium text-gray-400">
             OR CONTINUE WITH
           </span>
 
           <div className="h-px flex-1 bg-gray-200" />
         </div>
 
-        {/* Google Login */}
+        {/* =========================
+            Google Login
+        ========================== */}
         <Button
           type="button"
           onClick={handleGoogleLogin}
           variant="tertiary"
-          className="h-12 w-full rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-700 shadow-sm transition-all hover:border-gray-300 hover:bg-gray-50"
+          className="flex h-12 w-full items-center justify-center gap-2 rounded-xl border border-gray-200 bg-white text-sm font-medium text-gray-700 shadow-sm transition-all duration-300 hover:border-gray-300 hover:bg-gray-50 hover:shadow-md"
         >
-          <Icon icon="devicon:google" className="text-xl" />
+          <Icon
+            icon="devicon:google"
+            className="text-xl"
+          />
+
           Continue with Google
         </Button>
 
-        {/* Register */}
-        <p className=" text-center text-sm text-gray-500">
-          Do not  have an account?{" "}
+        {/* =========================
+            Register
+        ========================== */}
+        <p className="text-center text-sm text-gray-500">
+          Do not have an account?{" "}
+
           <Link
             href="/register"
-            className="font-semibold text-[#4275eb] hover:text-[#1158ff] hover:underline"
+            className="font-semibold text-[#4275eb] transition-colors hover:text-[#1158ff] hover:underline"
           >
             Create an account
           </Link>
         </p>
-
-
       </Card>
     </main>
   );
 };
 
 export default LoginPage;
+

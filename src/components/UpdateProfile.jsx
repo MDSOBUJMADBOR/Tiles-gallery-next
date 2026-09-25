@@ -152,17 +152,7 @@ const UpdateUserModal = () => {
                     className="
                       flex
                       items-center
-                      rounded-xl
-                      border
-                      border-gray-200
-                      bg-gray-50
-                      px-3
-                      transition-all
-                      duration-200
-                      focus-within:border-blue-500
-                      focus-within:bg-white
-                      focus-within:ring-4
-                      focus-within:ring-blue-100
+                      rounded-xl                     
                     "
                   >
                     <BiUser className="mr-2 shrink-0 text-lg text-gray-400" />
@@ -189,16 +179,7 @@ const UpdateUserModal = () => {
                       flex
                       items-center
                       rounded-xl
-                      border
-                      border-gray-200
-                      bg-gray-50
-                      px-3
-                      transition-all
-                      duration-200
-                      focus-within:border-blue-500
-                      focus-within:bg-white
-                      focus-within:ring-4
-                      focus-within:ring-blue-100
+                    
                     "
                   >
                     <BiImage className="mr-2 shrink-0 text-lg text-gray-400" />

@@ -14,27 +14,11 @@ import {
   User,
   UserPlus,
   ChevronDown,
-  Settings,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import logo from "../../public/tiles.png";
 import { authClient } from "@/lib/auth-client";
-
-const navItems = [
-  {
-    path: "/",
-    text: "Home",
-  },
-  {
-    path: "/all-tiles",
-    text: "All Tiles",
-  },
-  {
-    path: "/profile",
-    text: "My Profile",
-  },
-];
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -47,7 +31,10 @@ const Navbar = () => {
   const userData = authClient.useSession();
   const user = userData.data?.user;
 
-  // ================= CLOSE DROPDOWN OUTSIDE =================
+  // =========================================================
+  // CLOSE DROPDOWN WHEN CLICKING OUTSIDE
+  // =========================================================
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -65,7 +52,10 @@ const Navbar = () => {
     };
   }, []);
 
-  // ================= SIGN OUT =================
+  // =========================================================
+  // SIGN OUT
+  // =========================================================
+
   const handleSignOut = async () => {
     try {
       await authClient.signOut();
@@ -77,15 +67,54 @@ const Navbar = () => {
     }
   };
 
-  // ================= CLOSE MOBILE MENU =================
+  // =========================================================
+  // CLOSE MOBILE MENU
+  // =========================================================
+
   const handleMobileLink = () => {
     setOpen(false);
     setUserDropdown(false);
   };
 
+  // =========================================================
+  // NAVIGATION ITEMS
+  // =========================================================
+
+  const navItems = [
+    {
+      path: "/",
+      text: "Home",
+    },
+    {
+      path: "/all-tiles",
+      text: "All Tiles",
+    },
+    {
+      path: "/contact",
+      text: "Contact Us",
+    },
+    {
+      path: "/about",
+      text: "About Us",
+    },
+
+    // My Profile only appears when user is logged in
+    ...(user
+      ? [
+          {
+            path: "/profile",
+            text: "My Profile",
+          },
+        ]
+      : []),
+  ];
+
   return (
     <header className="sticky top-0 z-50 w-full">
-      {/* Background */}
+      {/* =====================================================
+          BACKGROUND
+      ===================================================== */}
+
       <div className="absolute inset-0 bg-black/90 backdrop-blur-xl" />
 
       {/* Bottom border */}
@@ -93,10 +122,9 @@ const Navbar = () => {
 
       <nav className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-[72px] items-center justify-between">
-
-          {/* ================================================= */}
-          {/* LOGO */}
-          {/* ================================================= */}
+          {/* =================================================
+              LOGO
+          ================================================= */}
 
           <Link
             href="/"
@@ -129,7 +157,7 @@ const Navbar = () => {
               </div>
             </motion.div>
 
-            <div className="hidden sm:block">
+            <div className="">
               <h1 className="text-lg font-extrabold tracking-tight text-white">
                 Tile
                 <span className="text-[#1158ff]"> Gallery</span>
@@ -141,13 +169,12 @@ const Navbar = () => {
             </div>
           </Link>
 
-          {/* ================================================= */}
-          {/* DESKTOP NAV */}
-          {/* ================================================= */}
+          {/* =================================================
+              DESKTOP NAVIGATION
+          ================================================= */}
 
           <div className="hidden items-center sm:flex">
             <div className="flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.04] p-1 backdrop-blur-md">
-
               {navItems.map((item) => {
                 const isActive = pathname === item.path;
 
@@ -183,23 +210,20 @@ const Navbar = () => {
                   </Link>
                 );
               })}
-
             </div>
           </div>
 
-          {/* ================================================= */}
-          {/* DESKTOP RIGHT SIDE */}
-          {/* ================================================= */}
+          {/* =================================================
+              DESKTOP RIGHT SIDE
+          ================================================= */}
 
           <div className="hidden items-center sm:flex">
-
-            {/* =============================================== */}
-            {/* NOT LOGGED IN */}
-            {/* =============================================== */}
-
             {!user ? (
-              <div className="flex items-center gap-2">
+              /* ===============================================
+                 NOT LOGGED IN
+              =============================================== */
 
+              <div className="flex items-center gap-2">
                 {/* Register */}
                 <Link href="/register">
                   <motion.div
@@ -250,20 +274,15 @@ const Navbar = () => {
                     </Button>
                   </motion.div>
                 </Link>
-
               </div>
             ) : (
+              /* ===============================================
+                 LOGGED IN
+              =============================================== */
 
-              /* ============================================= */
-              /* LOGGED IN */
-              /* ============================================= */
-
-              <div
-                ref={dropdownRef}
-                className="relative"
-              >
-
+              <div ref={dropdownRef} className="relative">
                 {/* User Button */}
+
                 <motion.button
                   type="button"
                   onClick={() =>
@@ -323,7 +342,9 @@ const Navbar = () => {
                   </motion.div>
                 </motion.button>
 
-                {/* ================= DROPDOWN ================= */}
+                {/* =================================================
+                    DESKTOP USER DROPDOWN
+                ================================================= */}
 
                 <AnimatePresence>
                   {userDropdown && (
@@ -363,11 +384,10 @@ const Navbar = () => {
                         backdrop-blur-2xl
                       "
                     >
-
                       {/* User Info */}
+
                       <div className="mb-2 rounded-xl bg-white/[0.05] p-3">
                         <div className="flex items-center gap-3">
-
                           <Avatar size="md">
                             <Avatar.Image
                               alt={user?.name || "User"}
@@ -391,11 +411,11 @@ const Navbar = () => {
                               {user?.email || "Member"}
                             </p>
                           </div>
-
                         </div>
                       </div>
 
-                      {/* Profile */}
+                      {/* My Profile */}
+
                       <Link
                         href="/profile"
                         onClick={() => setUserDropdown(false)}
@@ -420,35 +440,12 @@ const Navbar = () => {
                         <span>My Profile</span>
                       </Link>
 
-                      {/* Settings */}
-                      <button
-                        type="button"
-                        className="
-                          flex
-                          w-full
-                          items-center
-                          gap-3
-                          rounded-xl
-                          px-3
-                          py-2.5
-                          text-sm
-                          font-medium
-                          text-white/70
-                          transition-all
-                          duration-200
-                          hover:bg-white/5
-                          hover:text-white
-                        "
-                      >
-                        <Settings size={17} />
-
-                        <span>Settings</span>
-                      </button>
-
                       {/* Divider */}
+
                       <div className="my-2 h-px bg-white/10" />
 
                       {/* Sign Out */}
+
                       <button
                         type="button"
                         onClick={handleSignOut}
@@ -473,19 +470,16 @@ const Navbar = () => {
 
                         <span>Sign Out</span>
                       </button>
-
                     </motion.div>
                   )}
                 </AnimatePresence>
-
               </div>
             )}
-
           </div>
 
-          {/* ================================================= */}
-          {/* MOBILE MENU BUTTON */}
-          {/* ================================================= */}
+          {/* =================================================
+              MOBILE MENU BUTTON
+          ================================================= */}
 
           <motion.button
             type="button"
@@ -506,14 +500,9 @@ const Navbar = () => {
               hover:bg-white/10
               sm:hidden
             "
-            aria-label={
-              open ? "Close menu" : "Open menu"
-            }
+            aria-label={open ? "Close menu" : "Open menu"}
           >
-            <AnimatePresence
-              mode="wait"
-              initial={false}
-            >
+            <AnimatePresence mode="wait" initial={false}>
               {open ? (
                 <motion.div
                   key="close"
@@ -556,14 +545,15 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* ===================================================== */}
-      {/* MOBILE MENU */}
-      {/* ===================================================== */}
+      {/* =====================================================
+          MOBILE MENU
+      ===================================================== */}
 
       <AnimatePresence>
         {open && (
           <>
             {/* Overlay */}
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -581,6 +571,7 @@ const Navbar = () => {
             />
 
             {/* Mobile Panel */}
+
             <motion.div
               initial={{
                 opacity: 0,
@@ -618,13 +609,11 @@ const Navbar = () => {
               "
             >
               <div className="mx-auto max-w-lg">
-
                 {/* Navigation */}
-                <div className="space-y-1">
 
+                <div className="space-y-1">
                   {navItems.map((item, index) => {
-                    const isActive =
-                      pathname === item.path;
+                    const isActive = pathname === item.path;
 
                     return (
                       <motion.div
@@ -671,18 +660,17 @@ const Navbar = () => {
                       </motion.div>
                     );
                   })}
-
                 </div>
 
                 {/* Divider */}
+
                 <div className="my-4 h-px bg-white/10" />
 
-                {/* ================================================= */}
-                {/* MOBILE AUTH */}
-                {/* ================================================= */}
+                {/* =================================================
+                    MOBILE AUTH
+                ================================================= */}
 
                 {!user ? (
-
                   /* LOGIN + REGISTER */
                   <motion.div
                     initial={{
@@ -698,6 +686,8 @@ const Navbar = () => {
                     }}
                     className="grid grid-cols-2 gap-2"
                   >
+                    {/* Register */}
+
                     <Link
                       href="/register"
                       onClick={() => setOpen(false)}
@@ -713,13 +703,13 @@ const Navbar = () => {
                           font-semibold
                           text-white
                         "
-                        startContent={
-                          <UserPlus size={17} />
-                        }
+                        startContent={<UserPlus size={17} />}
                       >
                         Register
                       </Button>
                     </Link>
+
+                    {/* Login */}
 
                     <Link
                       href="/login"
@@ -734,17 +724,13 @@ const Navbar = () => {
                           font-semibold
                           text-white
                         "
-                        startContent={
-                          <LogIn size={17} />
-                        }
+                        startContent={<LogIn size={17} />}
                       >
                         Login
                       </Button>
                     </Link>
                   </motion.div>
-
                 ) : (
-
                   /* LOGGED IN MOBILE */
                   <motion.div
                     initial={{
@@ -760,16 +746,13 @@ const Navbar = () => {
                     }}
                     className="space-y-2"
                   >
-
                     {/* User Info */}
-                    <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-3">
 
+                    <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-3">
                       <Avatar size="md">
                         <Avatar.Image
                           alt={user?.name || "User"}
-                          src={
-                            user?.image || undefined
-                          }
+                          src={user?.image || undefined}
                           referrerPolicy="no-referrer"
                         />
 
@@ -789,10 +772,10 @@ const Navbar = () => {
                           {user?.email || "Member"}
                         </p>
                       </div>
-
                     </div>
 
-                    {/* Profile */}
+                    {/* My Profile */}
+
                     <Link
                       href="/profile"
                       onClick={() => setOpen(false)}
@@ -806,15 +789,18 @@ const Navbar = () => {
                         text-sm
                         font-medium
                         text-white/70
+                        transition-all
                         hover:bg-white/5
                         hover:text-white
                       "
                     >
                       <User size={18} />
+
                       My Profile
                     </Link>
 
                     {/* Sign Out */}
+
                     <button
                       type="button"
                       onClick={handleSignOut}
@@ -829,23 +815,24 @@ const Navbar = () => {
                         text-sm
                         font-medium
                         text-red-400
+                        transition-all
                         hover:bg-red-500/10
                       "
                     >
                       <LogOut size={18} />
+
                       Sign Out
                     </button>
-
                   </motion.div>
                 )}
 
                 {/* Footer */}
+
                 <div className="mt-5 text-center">
                   <p className="text-[10px] uppercase tracking-[0.2em] text-white/20">
                     Tile Gallery
                   </p>
                 </div>
-
               </div>
             </motion.div>
           </>
