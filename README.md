@@ -1,4 +1,4 @@
-````md
+
 # 🏠 TileGallery
 
 A modern, responsive, and visually polished tile showcase platform built with **Next.js**, **React**, **Tailwind CSS**, **HeroUI**, **Framer Motion**, and **Better Auth**.
@@ -6,6 +6,11 @@ A modern, responsive, and visually polished tile showcase platform built with **
 TileGallery allows users to explore premium tile collections, search and browse products, view detailed tile information, and manage their profile through a clean and responsive interface.
 
 ---
+
+
+<img width="1524" height="824" alt="Screenshot (204)" src="https://github.com/user-attachments/assets/1a489e5b-d24b-4a5d-add0-8d5ff95416f7" />
+
+
 
 ## ✨ Live Project
 
